@@ -9,13 +9,14 @@
 .details_container {
   padding: 4rem 0;
   color: rgba(255, 255, 255, 0.692);
-  background-color: var(--primaryBlack);
+  background-color: var(--white);
+  color: var(--primaryBlack);
 }
 
 .details_header {
-  color: var(--green);
+  color: var(--primaryViolet);
 }
 
 .writer {
-  color: var(--green);
+  color: var(--primaryViolet);
 }

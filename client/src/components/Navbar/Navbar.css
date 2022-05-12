@@ -13,5 +13,5 @@
   text-transform: capitalize;
 }
 .nav-link:hover {
-  color: var(--green) !important;
+  color: var(--primaryRed) !important;
 }

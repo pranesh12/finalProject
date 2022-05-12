@@ -2,8 +2,10 @@
   font-family: "Inconsolata";
   padding: 3rem 0 !important;
   color: var(--white);
-  background-color: var(--primaryBlack);
+  background-color: var(--primaryViolet);
 }
 .ar_header {
-  color: var(--green);
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: var(--white);
 }

@@ -11,9 +11,10 @@
 
 .main_card {
   border: none !important;
+  outline: 1px solid black;
 }
 .card_link:hover {
-  color: var(--green) !important;
+  color: var(--primaryRed) !important;
 }
 
 @media only screen and (max-width: 1160px) {

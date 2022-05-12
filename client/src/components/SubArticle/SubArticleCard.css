@@ -1,7 +1,6 @@
 .card_lower_body {
   font-family: "Inconsolata";
-  background-color: var(--secondaryBlack);
-
+  background-color: var(--white);
   height: 6rem;
 }
 .card_title {
@@ -9,7 +8,7 @@
   color: var(--green) !important;
 }
 .card_link {
-  color: var(--white) !important;
+  color: var(--primaryBlack) !important;
   text-decoration: none !important;
 }
 
