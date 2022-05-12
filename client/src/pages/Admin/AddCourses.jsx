@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch } from "react-redux";
-import FileBase64 from "react-file-base64";
 import { addArticleData } from "../../Redux/actions/article";
 
 const AddCourses = () => {
@@ -11,11 +10,13 @@ const AddCourses = () => {
     writer: "",
     header: "",
     article: "",
+    thumbnail: "",
     img: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     dispatch(addArticleData(articleData));
   };
   const handleChange = (e) => {
@@ -60,17 +61,29 @@ const AddCourses = () => {
                 value={articleData.header}
               />
             </div>
+
             <div class="mb-3">
-              <FileBase64
-                label="Image"
-                fullWidth
-                type="file"
-                multiple={false}
-                onDone={({ base64 }) =>
-                  setArticleData({ ...articleData, img: base64 })
-                }
+              <input
+                className="form-control"
+                type="url"
+                name="img"
+                placeholder="Image Url"
+                value={articleData.img}
+                onChange={handleChange}
               />
             </div>
+
+            <div class="mb-3">
+              <input
+                className="form-control"
+                type="url"
+                name="thumbnail"
+                placeholder="Image thumbnail"
+                value={articleData.thumbnail}
+                onChange={handleChange}
+              />
+            </div>
+
             <div class="mb-3">
               <input
                 className="form-control"

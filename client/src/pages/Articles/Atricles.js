@@ -8,6 +8,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 const Atricles = () => {
   const courseState = useSelector((state) => state.articleReducer.fetchDAta);
+  console.log(courseState);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getArticleData());

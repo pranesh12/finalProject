@@ -11,17 +11,20 @@ const getAllInfo = async (req, res) => {
 
 const addArticles = async (req, res) => {
   try {
-    const { category, writer, header, article, img } = req.body;
+    const { category, writer, header, article, img, thumbnail } = req.body;
+    console.log(req.body);
+
     await articleModel.create({
       category,
       writer,
       data: {
         image: img,
-        header,
-        article,
+        thumbnail: thumbnail,
+        header: header,
+        article: article,
       },
     });
-    res.json({ meassage: "course Created succesfuly" });
+    res.json({ meassage: "Article created succesfuly" });
   } catch (error) {
     res.json(error);
   }
@@ -49,7 +52,7 @@ const getArticle = async (req, res) => {
 
 const updateArticle = async (req, res) => {
   const { id, newData } = req.body;
-  const { category, writer, header, article, img } = newData;
+  const { category, writer, header, article, img, thumbnail } = newData;
   try {
     const newData = {
       category,
@@ -58,6 +61,7 @@ const updateArticle = async (req, res) => {
         image: img,
         header,
         article,
+        thumbnail: thumbnail,
       },
     };
 

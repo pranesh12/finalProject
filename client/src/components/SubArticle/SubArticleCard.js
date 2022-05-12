@@ -11,7 +11,7 @@ const Cards = ({ filterData }) => {
               {
                 <img
                   style={{ min_width: "500px", height: "300px" }}
-                  src={data.data.image}
+                  src={data.data.thumbnail}
                   className="card-img-top img_top "
                   alt={data.subType}
                 />

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch, useSelector } from "react-redux";
-import FileBase64 from "react-file-base64";
 import { findDataByid, updateArticle } from "../../Redux/actions/article";
 
 const ArticleUpdate = () => {
@@ -18,7 +17,10 @@ const ArticleUpdate = () => {
     header: "",
     article: "",
     img: "",
+    thumbnail: "",
   });
+
+  console.log(articleData);
 
   useEffect(() => {
     if (foundedData) {
@@ -29,6 +31,7 @@ const ArticleUpdate = () => {
           writer: foundedData?.writer,
           article: foundedData?.data.article,
           img: foundedData?.data.image,
+          thumbnail: foundedData?.data.thumbnail,
         });
       } else {
         dispatch(findDataByid(id));
@@ -82,17 +85,28 @@ const ArticleUpdate = () => {
                 value={articleData.header}
               />
             </div>
+
             <div class="mb-3">
-              <FileBase64
-                label="Image"
-                fullWidth
-                type="file"
-                multiple={false}
-                onDone={({ base64 }) =>
-                  setArticleData({ ...articleData, img: base64 })
-                }
+              <input
+                className="form-control"
+                type="url"
+                name="img"
+                placeholder="Image"
+                value={articleData.img}
+                onChange={handleChange}
               />
             </div>
+            <div class="mb-3">
+              <input
+                className="form-control"
+                type="url"
+                name="thumbnail"
+                placeholder="Image thumbnail"
+                value={articleData.thumbnail}
+                onChange={handleChange}
+              />
+            </div>
+
             <div class="mb-3">
               <input
                 className="form-control"
