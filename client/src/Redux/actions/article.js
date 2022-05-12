@@ -18,6 +18,9 @@ import {
   UPDATE_ARTICLE_DATA,
   UPDATE_ARTICLE_DATA_SUCCESS,
   UPDATE_ARTICLE_DATA_FAILED,
+  GET_ARTICLECARD,
+  GET_ARTICLECARD_SUCCESS,
+  GET_ARTICLECARD_FAILED,
 } from "../../actionType/actionType";
 
 import { url } from "../../api/api";
@@ -29,6 +32,16 @@ export const getArticleData = () => async (dispatch) => {
     dispatch({ type: FETCH_ARTICLE_DATA_SUCCESS, payload: res.data });
   } catch (error) {
     dispatch({ type: FETCH_ARTICLE_DATA_FAILED, payload: error });
+  }
+};
+//GET article card item
+export const getArticleCard = () => async (dispatch) => {
+  dispatch({ type: GET_ARTICLECARD });
+  try {
+    const res = await axios.get(url + `articleCard`);
+    dispatch({ type: GET_ARTICLECARD_SUCCESS, payload: res.data });
+  } catch (error) {
+    dispatch({ type: GET_ARTICLECARD_FAILED, payload: error });
   }
 };
 

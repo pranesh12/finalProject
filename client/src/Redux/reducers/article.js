@@ -17,6 +17,9 @@ import {
   UPDATE_ARTICLE_DATA,
   UPDATE_ARTICLE_DATA_SUCCESS,
   UPDATE_ARTICLE_DATA_FAILED,
+  GET_ARTICLECARD,
+  GET_ARTICLECARD_SUCCESS,
+  GET_ARTICLECARD_FAILED,
 } from "../../actionType/actionType";
 
 export const articleReducer = (state = {}, action) => {
@@ -33,6 +36,32 @@ export const articleReducer = (state = {}, action) => {
         fetchDAta: action.payload,
       };
     case FETCH_ARTICLE_DATA_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+
+export const articleCardReducer = (state = {}, action) => {
+  switch (action.type) {
+    case GET_ARTICLECARD:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_ARTICLECARD_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        data: action.payload,
+      };
+    case GET_ARTICLECARD_FAILED:
       return {
         ...state,
         loading: false,

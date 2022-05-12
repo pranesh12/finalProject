@@ -9,11 +9,18 @@ const getAllInfo = async (req, res) => {
   }
 };
 
+const getArticleCard = async (req, res) => {
+  try {
+    const info = await articleModel.find({}).select("data.header data.thumbnail");
+    res.json(info);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const addArticles = async (req, res) => {
   try {
     const { category, writer, header, article, img, thumbnail } = req.body;
-    console.log(req.body);
-
     await articleModel.create({
       category,
       writer,
@@ -40,7 +47,7 @@ const removeArticle = async (req, res) => {
   }
 };
 
-const getArticle = async (req, res) => {
+const getArticleById = async (req, res) => {
   try {
     const { id } = req.query;
     const foundArticle = await articleModel.findOne({ _id: id });
@@ -76,6 +83,7 @@ module.exports = {
   getAllInfo: getAllInfo,
   addArticles: addArticles,
   removeArticle: removeArticle,
-  getArticle: getArticle,
+  getArticleById: getArticleById,
   updateArticle: updateArticle,
+  getArticleCard: getArticleCard,
 };
