@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch, useSelector } from "react-redux";
-import { findDataByid, updateArticle } from "../../Redux/actions/article";
+import { getArticleByID, updateArticle } from "../../Redux/actions/article";
 
 const ArticleUpdate = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const foundedData = useSelector(
-    (state) => state.findArticleByIdReducer.foundArticle
-  );
+  const foundedData = useSelector((state) => state.articleByIdReducer.data);
+
+  console.log(foundedData);
 
   const [articleData, setArticleData] = useState({
     category: "History",
@@ -19,8 +19,6 @@ const ArticleUpdate = () => {
     img: "",
     thumbnail: "",
   });
-
-  console.log(articleData);
 
   useEffect(() => {
     if (foundedData) {
@@ -34,10 +32,10 @@ const ArticleUpdate = () => {
           thumbnail: foundedData?.data.thumbnail,
         });
       } else {
-        dispatch(findDataByid(id));
+        dispatch(getArticleByID(id));
       }
     } else {
-      dispatch(findDataByid(id));
+      dispatch(getArticleByID(id));
     }
   }, [id, dispatch, foundedData]);
 

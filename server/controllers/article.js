@@ -1,6 +1,6 @@
 const articleModel = require("../models/articleModel");
 
-const getAllInfo = async (req, res) => {
+const getAllArticleData = async (req, res) => {
   try {
     const info = await articleModel.find({});
     res.json(info);
@@ -8,13 +8,24 @@ const getAllInfo = async (req, res) => {
     console.log(error);
   }
 };
-
+//getArticle of card
 const getArticleCard = async (req, res) => {
   try {
     const info = await articleModel.find({}).select("data.header data.thumbnail");
     res.json(info);
   } catch (error) {
     console.log(error);
+  }
+};
+
+//Article by id
+const getArticleById = async (req, res) => {
+  try {
+    const { id } = req.query;
+    const foundArticle = await articleModel.findOne({ _id: id });
+    res.json(foundArticle);
+  } catch (error) {
+    res.json(error);
   }
 };
 
@@ -47,16 +58,6 @@ const removeArticle = async (req, res) => {
   }
 };
 
-const getArticleById = async (req, res) => {
-  try {
-    const { id } = req.query;
-    const foundArticle = await articleModel.findOne({ _id: id });
-    res.json(foundArticle);
-  } catch (error) {
-    res.json(error);
-  }
-};
-
 const updateArticle = async (req, res) => {
   const { id, newData } = req.body;
   const { category, writer, header, article, img, thumbnail } = newData;
@@ -80,7 +81,7 @@ const updateArticle = async (req, res) => {
 };
 
 module.exports = {
-  getAllInfo: getAllInfo,
+  getAllArticleData: getAllArticleData,
   addArticles: addArticles,
   removeArticle: removeArticle,
   getArticleById: getArticleById,

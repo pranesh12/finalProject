@@ -1,6 +1,6 @@
 const express = require("express");
 const {
-  getAllInfo,
+  getAllArticleData,
   addArticles,
   removeArticle,
   getArticleById,
@@ -11,8 +11,8 @@ const {
 const router = express.Router();
 
 router.get("/articleCard", getArticleCard);
-router.get("/article", getAllInfo);
-router.get("/getArticleId", getArticleById);
+router.get("/articles", getAllArticleData);
+router.get("/article", getArticleById);
 router.post("/article", addArticles);
 router.put("/article", updateArticle);
 router.delete("/article", removeArticle);

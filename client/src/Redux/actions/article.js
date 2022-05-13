@@ -12,15 +12,15 @@ import {
   DELETE_ARTICLE_DATA,
   DELETE_ARTICLE_DATA_FAILED,
   DELETE_ARTICLE_DATA_SUCCESS,
-  FIND_DATA_BYID,
-  FIND_DATA_BYID_SUCCESS,
-  FIND_DATA_BYID_FAILED,
   UPDATE_ARTICLE_DATA,
   UPDATE_ARTICLE_DATA_SUCCESS,
   UPDATE_ARTICLE_DATA_FAILED,
   GET_ARTICLECARD,
   GET_ARTICLECARD_SUCCESS,
   GET_ARTICLECARD_FAILED,
+  GET_ARTICLEBY_ID,
+  GET_ARTICLEBY_ID_SUCCESS,
+  GET_ARTICLEBY_ID_FAILED,
 } from "../../actionType/actionType";
 
 import { url } from "../../api/api";
@@ -28,7 +28,7 @@ import { url } from "../../api/api";
 export const getArticleData = () => async (dispatch) => {
   dispatch({ type: FETCH_ARTICLE_DATA });
   try {
-    const res = await axios.get(url + `article`);
+    const res = await axios.get(url + `articles`);
     dispatch({ type: FETCH_ARTICLE_DATA_SUCCESS, payload: res.data });
   } catch (error) {
     dispatch({ type: FETCH_ARTICLE_DATA_FAILED, payload: error });
@@ -45,6 +45,16 @@ export const getArticleCard = () => async (dispatch) => {
   }
 };
 
+//getArticleByID
+export const getArticleByID = (id) => async (dispatch) => {
+  dispatch({ type: GET_ARTICLEBY_ID });
+  try {
+    const res = await axios.get(url + `article?id=${id}`);
+    dispatch({ type: GET_ARTICLEBY_ID_SUCCESS, payload: res.data });
+  } catch (error) {
+    dispatch({ type: GET_ARTICLEBY_ID_FAILED, payload: error });
+  }
+};
 export const getTeachers = () => async (dispatch) => {
   dispatch({ type: FETCH_ALL_TEACHERS });
   try {
@@ -76,16 +86,6 @@ export const deletArticleData = (id) => async (dispatch, getState) => {
     window.location = "/admin";
   } catch (error) {
     dispatch({ type: DELETE_ARTICLE_DATA_FAILED, payload: error });
-  }
-};
-
-export const findDataByid = (id) => async (dispatch) => {
-  dispatch({ type: FIND_DATA_BYID });
-  try {
-    const res = await axios.get(url + `getArticle?id=${id}`);
-    dispatch({ type: FIND_DATA_BYID_SUCCESS, payload: res.data });
-  } catch (error) {
-    dispatch({ type: FIND_DATA_BYID_FAILED, payload: error });
   }
 };
 

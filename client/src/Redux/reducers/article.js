@@ -20,6 +20,9 @@ import {
   GET_ARTICLECARD,
   GET_ARTICLECARD_SUCCESS,
   GET_ARTICLECARD_FAILED,
+  GET_ARTICLEBY_ID,
+  GET_ARTICLEBY_ID_SUCCESS,
+  GET_ARTICLEBY_ID_FAILED,
 } from "../../actionType/actionType";
 
 export const articleReducer = (state = {}, action) => {
@@ -48,6 +51,34 @@ export const articleReducer = (state = {}, action) => {
   }
 };
 
+//articleIdReducer
+
+export const articleByIdReducer = (state = {}, action) => {
+  switch (action.type) {
+    case GET_ARTICLEBY_ID:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_ARTICLEBY_ID_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        data: action.payload,
+      };
+    case GET_ARTICLEBY_ID_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+
 export const articleCardReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_ARTICLECARD:
@@ -62,32 +93,6 @@ export const articleCardReducer = (state = {}, action) => {
         data: action.payload,
       };
     case GET_ARTICLECARD_FAILED:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-      };
-    default:
-      return {
-        ...state,
-      };
-  }
-};
-
-export const findArticleByIdReducer = (state = {}, action) => {
-  switch (action.type) {
-    case FIND_DATA_BYID:
-      return {
-        ...state,
-        loading: true,
-      };
-    case FIND_DATA_BYID_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        foundArticle: action.payload,
-      };
-    case FIND_DATA_BYID_FAILED:
       return {
         ...state,
         loading: false,

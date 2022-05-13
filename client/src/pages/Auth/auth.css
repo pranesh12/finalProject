@@ -1,20 +1,21 @@
 .auth {
   padding-top: 15rem;
-  background-color: var(--secondaryBlack);
+  background-color: var(--white);
   font-family: "Inconsolata";
   height: 90vh;
 }
 .toogleAuth {
   cursor: pointer;
-  color: var(--green);
+  color: var(--primaryRed);
 }
 
 .auth button {
-  background-color: var(--primaryBlack);
-  color: var(--green);
+  background-color: var(--primaryBlue);
+  color: var(--white);
 }
 .auth button:hover {
-  color: var(--green);
+  background-color: var(--white);
+  color: var(--primaryBlue);
 }
 
 .form-control:focus {

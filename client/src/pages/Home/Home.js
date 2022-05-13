@@ -15,7 +15,6 @@ import chakmaLanguageData from "../../data/chakmaLanguageData";
 
 const Home = () => {
   const articleCardData = useSelector((state) => state.articleCardReducer.data);
-  console.log(articleCardData);
   const currentLanguage = useSelector(
     (state) => state.languageReducer.changeToChakmaLange
   );
