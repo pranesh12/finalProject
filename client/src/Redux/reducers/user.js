@@ -10,10 +10,10 @@ import {
   GET_USER_DATA_FAILED,
   DELETE_USER_ACCOUNT,
   DELETE_USER_ACCOUNT_SUCCESS,
-  DELETE_ARTICLE_DATA_FAILED,
+  DELETE_USER_ACCOUNT_FAILED,
 } from "../../actionType/actionType";
 
-export const userReducer = (state = {}, action) => {
+export const loginUserReducer = (state, action) => {
   switch (action.type) {
     case LOGIN_USER:
       return {
@@ -25,13 +25,23 @@ export const userReducer = (state = {}, action) => {
         ...state,
         loginLoading: false,
         currentUser: action.payload,
+        loginSuccess: true,
       };
     case LOGIN_USER_FAILED:
       return {
         ...state,
         loginLoading: false,
-        error: action.payload,
+        loginError: action.payload,
       };
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+
+export const registerUserReducer = (state, action) => {
+  switch (action.type) {
     case REGISTER_USER:
       return {
         ...state,
@@ -42,13 +52,49 @@ export const userReducer = (state = {}, action) => {
         ...state,
         currentUser: action.payload,
         registerLoading: false,
+        registerSuccess: true,
       };
     case REGISTER_USER_FAILED:
       return {
         ...state,
-        error: action.payload,
+        registerError: action.payload,
         registerLoading: false,
       };
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+
+export const removeUserReducer = (state, action) => {
+  switch (action.type) {
+    case DELETE_USER_ACCOUNT:
+      return {
+        ...state,
+        dleteAccountLoading: true,
+      };
+    case DELETE_USER_ACCOUNT_SUCCESS:
+      return {
+        ...state,
+        dleteAccountLoading: false,
+        deletedDAta: action.payload,
+      };
+    case DELETE_USER_ACCOUNT_FAILED:
+      return {
+        ...state,
+        dleteAccountLoading: false,
+        error: action.payload,
+      };
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+
+export const getAllUserReducer = (state, action) => {
+  switch (action.type) {
     case GET_USER:
       return {
         ...state,
@@ -65,23 +111,6 @@ export const userReducer = (state = {}, action) => {
         ...state,
         error: action.payload,
         loading: false,
-      };
-    case DELETE_USER_ACCOUNT:
-      return {
-        ...state,
-        dleteAccountLoading: true,
-      };
-    case DELETE_USER_ACCOUNT_SUCCESS:
-      return {
-        ...state,
-        dleteAccountLoading: false,
-        deletedDAta: action.payload,
-      };
-    case DELETE_ARTICLE_DATA_FAILED:
-      return {
-        ...state,
-        dleteAccountLoading: false,
-        error: action.payload,
       };
     default:
       return {

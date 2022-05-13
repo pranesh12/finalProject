@@ -42,8 +42,7 @@ export const loginUser = (logindata) => async (dispatch) => {
 };
 
 export const getAllUserData = () => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
-
+  const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: GET_USER });
   try {
     const res = await axios.get(url + `userList?email=${email}`);
@@ -54,7 +53,7 @@ export const getAllUserData = () => async (dispatch, getState) => {
 };
 
 export const removeUserAccount = (id) => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
+  const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: DELETE_USER_ACCOUNT });
   try {
     const res = await axios.delete(url + `removeAccount?id=${id}&email=${email}`);

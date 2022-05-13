@@ -9,17 +9,19 @@ import Auth from "./pages/Auth/Auth";
 import Home from "./pages/Home/Home";
 import AdminPrivateRoute from "./pages/PrivateRoute/AdminPrivateRoute";
 import ArticleUpdate from "./pages/Admin/ArticleUpdate";
+import Addreview from "./components/Review/Addreview";
 
 function App() {
   return (
     <>
       <Router>
-        <Route path={["/articles", "/auth", "/:name/:id", "/"]}>
+        <Route path={["/articles", "/auth", "/:name/:id", "/review", "/"]}>
           {/* <Navbar /> */}
           <Switch>
             <Route path="/auth" component={Auth}></Route>
             <Route path="/:name/:id" component={Details}></Route>
             <Route path="/articles" component={Atricles}></Route>
+            <Route path="/review" component={Addreview}></Route>
             <Route exact path="/" component={Home}></Route>
           </Switch>
         </Route>

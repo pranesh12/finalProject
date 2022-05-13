@@ -5,7 +5,7 @@ import { getAllUserData, removeUserAccount } from "../../Redux/actions/userActio
 
 const UserList = () => {
   const dispatch = useDispatch();
-  const UserListState = useSelector((state) => state.userReducer.userList);
+  const UserListState = useSelector((state) => state.getAllUserReducer.userList);
 
   useEffect(() => {
     dispatch(getAllUserData());
