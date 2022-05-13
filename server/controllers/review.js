@@ -3,7 +3,7 @@ const reviewModel = require("../models/review");
 const getAllReview = async (req, res) => {
   try {
     const review = await reviewModel.find({});
-    res.status(200).json(review);
+    res.json(review);
   } catch (error) {
     console.log(error);
   }
@@ -21,7 +21,7 @@ const addReview = async (req, res) => {
         name,
       },
     });
-    console.log("Add comment hitted");
+    console.log("add review hitte");
     res.json({ meassage: "Your review added succesfully" });
   } catch (error) {
     console.log(error);

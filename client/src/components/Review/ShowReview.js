@@ -5,7 +5,9 @@ import { getAllReview } from "../../Redux/actions/review";
 
 const ShowReview = () => {
   const reviewState = useSelector((state) => state.getAllreviewReducer.fetchData);
+  console.log(reviewState);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getAllReview());
   }, [dispatch]);

@@ -5,6 +5,7 @@ const cors = require("cors");
 const app = express();
 const articleRouter = require("./routes/article");
 const userRouter = require("./routes/user");
+const reviewRouter = require("./routes/reviews");
 
 app.use(compression());
 app.use(express.json({ limit: "50mb" }));
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.use("/", articleRouter);
 app.use("/", userRouter);
+app.use("/", reviewRouter);
 mongoose.connect("mongodb://localhost:27017/hillTracts", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
