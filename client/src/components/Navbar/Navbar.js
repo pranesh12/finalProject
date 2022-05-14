@@ -13,7 +13,7 @@ const Navbar = () => {
   const currentLanguage = useSelector(
     (state) => state.languageReducer.changeToChakmaLange
   );
-  console.log(currentLanguage);
+
   const { name } = currentUserState;
 
   return (

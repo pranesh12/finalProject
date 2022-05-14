@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
+import "./addreview.css";
 import {
   addReview,
   findReviewbyMail,
@@ -14,6 +15,8 @@ const Addreview = () => {
   const foundedReview = useSelector(
     (state) => state.findReviewByMailReducer.fetchData
   );
+
+  console.log(foundedReview);
 
   const email = useSelector((state) => state.loginUserReducer?.currentUser?.email);
   const [comment, setComment] = useState();
@@ -60,8 +63,8 @@ const Addreview = () => {
   return (
     <>
       <Navbar />
-      <div style={styles.container}>
-        <h2> Rate this Website </h2>
+      <div className="review_container mt-5" style={styles.container}>
+        <h2 className="mb-4 rate_header"> Rate this Website </h2>
         <div style={styles.stars}>
           {stars.map((_, index) => {
             return (
@@ -83,26 +86,20 @@ const Addreview = () => {
           })}
         </div>
         <textarea
+          className="review_textbox"
           placeholder="What's your experience?"
           style={styles.textarea}
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
 
-        <button onClick={hadnleReview} style={styles.button}>
+        <button
+          className="review_button"
+          onClick={hadnleReview}
+          style={styles.button}
+        >
           Submit
         </button>
-      </div>
-
-      <div className="reviews">
-        <div class="card" style={{ width: "18rem" }}>
-          <div className="card-body">
-            <p className="card-text">
-              Some quick example text to build on the card title and make up the bulk
-              of the card's content.
-            </p>
-          </div>
-        </div>
       </div>
     </>
   );
@@ -123,8 +120,8 @@ const styles = {
     borderRadius: 5,
     padding: 10,
     margin: "20px 0",
-    minHeight: 100,
-    width: 300,
+    minHeight: 150,
+    width: 320,
   },
   button: {
     border: "1px solid #a9a9a9",

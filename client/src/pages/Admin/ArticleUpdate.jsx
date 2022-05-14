@@ -9,8 +9,6 @@ const ArticleUpdate = () => {
   const { id } = useParams();
   const foundedData = useSelector((state) => state.articleByIdReducer.data);
 
-  console.log(foundedData);
-
   const [articleData, setArticleData] = useState({
     category: "History",
     writer: "",

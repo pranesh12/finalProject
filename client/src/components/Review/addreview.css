@@ -1,0 +1,25 @@
+.review_container {
+  font-family: Inconsolata !important;
+}
+
+.rate_header {
+  font-family: Inconsolata;
+  color: var(--primaryViolet);
+}
+
+.review_button {
+  font-family: Inconsolata;
+  background-color: var(--primaryViolet);
+  color: var(--white);
+}
+
+.review_button:hover {
+  background-color: var(--white);
+  color: var(--primaryRed);
+}
+.review_textbox {
+  font-family: Inconsolata;
+}
+.review_textbox:focus {
+  outline: 2px solid var(--primaryViolet) !important;
+}

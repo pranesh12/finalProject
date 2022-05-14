@@ -12,7 +12,7 @@ import SubArticle from "../../components/SubArticle/SubArticle";
 import { changeLanguage } from "../../Redux/actions/changingLanguage";
 import englishLanguageData from "../../data/englishLanguageData";
 import chakmaLanguageData from "../../data/chakmaLanguageData";
-import ShowReview from "../../components/Review/ShowReview";
+import AnoterCard from "../../components/Review/Showreview";
 
 const Home = () => {
   const articleCardData = useSelector((state) => state.articleCardReducer.data);
@@ -34,7 +34,7 @@ const Home = () => {
           <Section props={chakmaLanguageData} />
           <SubArticle data={articleCardData} />
           <About props={chakmaLanguageData} />
-          <ShowReview />
+          <AnoterCard />
           <Information props={chakmaLanguageData} />
           <Footer props={chakmaLanguageData} />
         </>
@@ -44,7 +44,7 @@ const Home = () => {
           <Section props={englishLanguageData} />
           <SubArticle data={articleCardData} />
           <About props={englishLanguageData} />
-          <ShowReview />
+          <AnoterCard />
           <Information props={englishLanguageData} />
           <Footer props={englishLanguageData} />
         </>

@@ -2,7 +2,6 @@ import React from "react";
 import "./Information.css";
 
 const Information = ({ props }) => {
-  console.log(props);
   const { header, subHeader, address, email, list, info } = props.information;
   return (
     <div className="information">
