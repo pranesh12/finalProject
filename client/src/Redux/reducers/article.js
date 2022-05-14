@@ -2,18 +2,12 @@ import {
   FETCH_ARTICLE_DATA_FAILED,
   FETCH_ARTICLE_DATA_SUCCESS,
   FETCH_ARTICLE_DATA,
-  FETCH_ALL_TEACHERS,
-  FETCH_ALL_TEACHERS_SUCCESS,
-  FETCH_ALL_TEACHERS_FAILED,
   Add_ARTICLE_DATA,
   Add_ARTICLE_DATA_FAILED,
   Add_ARTICLE_DATA_SUCCESS,
   DELETE_ARTICLE_DATA,
   DELETE_ARTICLE_DATA_SUCCESS,
   DELETE_ARTICLE_DATA_FAILED,
-  FIND_DATA_BYID,
-  FIND_DATA_BYID_SUCCESS,
-  FIND_DATA_BYID_FAILED,
   UPDATE_ARTICLE_DATA,
   UPDATE_ARTICLE_DATA_SUCCESS,
   UPDATE_ARTICLE_DATA_FAILED,
@@ -172,29 +166,6 @@ export const articleUpdateReducer = (state = {}, action) => {
         error: action.payload,
       };
     }
-    default:
-      return {
-        ...state,
-      };
-  }
-};
-
-export const teachersReducer = (state = {}, action) => {
-  switch (action.type) {
-    case FETCH_ALL_TEACHERS:
-      return {
-        ...state,
-      };
-    case FETCH_ALL_TEACHERS_SUCCESS:
-      return {
-        ...state,
-        teachers: action.payload,
-      };
-    case FETCH_ALL_TEACHERS_FAILED:
-      return {
-        ...state,
-        error: action.payload,
-      };
     default:
       return {
         ...state,

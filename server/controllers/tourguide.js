@@ -22,7 +22,7 @@ const getTourGuideById = async (req, res) => {
 
 const addTourGuide = async (req, res) => {
   try {
-    const { category, writer, header, article, img, thumbnail, name } = req.body;
+    const { name, email, district, phone_number, address } = req.body;
     await tourGuideModel.create({
       name,
       email,
@@ -40,7 +40,7 @@ const removeTourGuide = async (req, res) => {
   try {
     const { id } = req.query;
     await tourGuideModel.deleteOne({ _id: id });
-    res.json("Data removded");
+    res.json("Tour guide removded");
   } catch (error) {
     res.json(error);
   }
@@ -48,10 +48,10 @@ const removeTourGuide = async (req, res) => {
 
 const updateTourGuide = async (req, res) => {
   const { id, newData } = req.body;
-  const { category, writer, header, article, img, thumbnail } = newData;
+  const { name, email, district, phone_number, address } = newData;
   try {
     const newTourGuide = {
-      name,
+      name: name,
       email,
       district,
       phone_number,
