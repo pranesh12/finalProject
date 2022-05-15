@@ -16,7 +16,6 @@ import {
   REMOVE_TOUR_GUIDE_SUCCESS,
   REMOVE_TOUR_GUIDE_FAILED,
 } from "../../actionType/actionType";
-
 import { url } from "../../api/api";
 
 export const getTourguidesData = () => async (dispatch) => {
@@ -52,7 +51,7 @@ export const addTourGuide = (data) => async (dispatch, getState) => {
   }
 };
 
-export const deletArticleData = (id) => async (dispatch, getState) => {
+export const removeTourGuideData = (id) => async (dispatch, getState) => {
   const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: REMOVE_TOUR_GUIDE });
   try {

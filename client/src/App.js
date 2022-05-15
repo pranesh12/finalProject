@@ -10,6 +10,8 @@ import Home from "./pages/Home/Home";
 import AdminPrivateRoute from "./pages/PrivateRoute/AdminPrivateRoute";
 import ArticleUpdate from "./pages/Admin/ArticleUpdate";
 import Addreview from "./components/Review/Addreview";
+import Tourguides from "./components/Tourguides/Tourguides";
+import AdminTourGuideList from "./pages/Admin/AdminTourGuideList";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
             <Route path="/:name/:id" component={Details}></Route>
             <Route path="/articles" component={Atricles}></Route>
             <Route path="/review" component={Addreview}></Route>
+            <Route path="/tourguides" component={Tourguides}></Route>
             <Route exact path="/" component={Home}></Route>
           </Switch>
         </Route>
@@ -38,6 +41,9 @@ function App() {
             </AdminPrivateRoute>
             <AdminPrivateRoute exact path="/admin/addteacher">
               <AddTeacher />
+            </AdminPrivateRoute>
+            <AdminPrivateRoute exact path="/admin/tourguideslist">
+              <AdminTourGuideList />
             </AdminPrivateRoute>
             <AdminPrivateRoute exact path="/admin/edit/:id">
               <ArticleUpdate />

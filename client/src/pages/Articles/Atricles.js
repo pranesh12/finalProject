@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getArticleCard, getArticleData } from "../../Redux/actions/article";
+import { getArticleCard } from "../../Redux/actions/article";
 import { useSelector } from "react-redux";
 import Cards from "../../components/Cards/Cards";
 import "./Article.css";

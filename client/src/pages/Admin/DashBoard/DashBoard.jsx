@@ -12,25 +12,33 @@ const Dashboard = () => {
       <ul className="list-unstyled components mb-5 mt-5 ms-2">
         <li className="active">
           <NavLink to="/admin">
-            <span className="fa fa-home"></span>{" "}
+            <span className="fa fa-home"></span>
             <span className="sidebar_heading">Homepage</span>
           </NavLink>
         </li>
         <li>
           <NavLink to="/admin/userlist">
-            <span className="fa fa-user"></span>{" "}
+            <span className="fa fa-user"></span>
             <span className="sidebar_heading">User List</span>
           </NavLink>
         </li>
         <li>
           <NavLink to="/admin/addcourse">
-            <i class="far fa-plus-square"></i>{" "}
+            <i class="far fa-plus-square"></i>
             <span className="sidebar_heading">Add Article</span>
           </NavLink>
         </li>
+
+        <li>
+          <NavLink to="/admin/tourguideslist">
+            <i class="far fa-plus-square"></i>
+            <span className="sidebar_heading">Tour Guides List</span>
+          </NavLink>
+        </li>
+
         <li onClick={() => dispatch(logoutUser())}>
           <NavLink to="#">
-            <i class="fas fa-sign-out-alt"></i>{" "}
+            <i class="fas fa-sign-out-alt"></i>
             <span className="sidebar_heading">Log out</span>
           </NavLink>
         </li>
