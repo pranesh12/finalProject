@@ -7,7 +7,6 @@ import "./showreview.css";
 
 const AnoterCard = () => {
   const reviewState = useSelector((state) => state.getAllreviewReducer.fetchData);
-  console.log(reviewState);
   const dispatch = useDispatch();
 
   useEffect(() => {
