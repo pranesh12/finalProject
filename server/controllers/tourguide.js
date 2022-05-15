@@ -22,13 +22,14 @@ const getTourGuideById = async (req, res) => {
 
 const addTourGuide = async (req, res) => {
   try {
-    const { name, email, district, phone_number, address } = req.body;
+    const { name, email, district, phone_number, address, status } = req.body;
     await tourGuideModel.create({
       name,
       email,
       district,
       phone_number,
       address,
+      status,
     });
     res.json({ meassage: "Tourguide created succesfuly" });
   } catch (error) {
@@ -48,14 +49,15 @@ const removeTourGuide = async (req, res) => {
 
 const updateTourGuide = async (req, res) => {
   const { id, newData } = req.body;
-  const { name, email, district, phone_number, address } = newData;
+  const { name, email, district, phone_number, address, status } = newData;
   try {
     const newTourGuide = {
-      name: name,
+      name,
       email,
       district,
       phone_number,
       address,
+      status,
     };
 
     await tourGuideModel.findByIdAndUpdate(id, newTourGuide, { new: true });

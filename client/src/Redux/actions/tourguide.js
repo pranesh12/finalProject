@@ -63,7 +63,7 @@ export const removeTourGuideData = (id) => async (dispatch, getState) => {
   }
 };
 
-export const updateArticle = (id, newData) => async (dispatch, getState) => {
+export const updateTourGuide = (id, newData) => async (dispatch, getState) => {
   const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: UPDATE_TOUR_GUIDE });
   const updataedData = {

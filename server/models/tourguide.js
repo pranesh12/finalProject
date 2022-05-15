@@ -11,6 +11,7 @@ const tourguideSchema = new Schema(
     district: { type: String, require },
     phone_number: { type: Number, require },
     address: { type: String, require },
+    status: { type: String, require },
   },
   { timestamps: true }
 );

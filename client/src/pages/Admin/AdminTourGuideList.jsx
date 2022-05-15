@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import {
   getTourguidesData,
   removeTourGuideData,
@@ -36,7 +37,7 @@ const AdminTourGuideList = () => {
                     <th>Address</th>
                     <th>Phone Number</th>
                     <th>Status</th>
-                    <th>Delete TourGuide</th>
+                    <th>Edit / Delete</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,12 +51,20 @@ const AdminTourGuideList = () => {
                           </td>
                           <td>{person.phone_number}</td>
                           <td>avilable</td>
+
                           <td>
-                            <div>
-                              <i
-                                onClick={() => deleteTourGuide(person._id)}
-                                className="fas fa-trash-alt deleteIcon"
-                              ></i>
+                            <div className="d-flex justify-content-around">
+                              <div>
+                                <Link to={`/admin/tourguideEdit/${person._id}`}>
+                                  <i className="far fa-edit editIcon"></i>
+                                </Link>
+                              </div>
+                              <div>
+                                <i
+                                  onClick={() => deleteTourGuide(person._id)}
+                                  className="fas fa-trash-alt deleteIcon"
+                                ></i>
+                              </div>
                             </div>
                           </td>
                         </tr>

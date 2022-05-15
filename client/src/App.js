@@ -12,6 +12,8 @@ import ArticleUpdate from "./pages/Admin/ArticleUpdate";
 import Addreview from "./components/Review/Addreview";
 import Tourguides from "./components/Tourguides/Tourguides";
 import AdminTourGuideList from "./pages/Admin/AdminTourGuideList";
+import AddTourGuide from "./pages/Admin/AddTourGuide";
+import TourGuideUpdate from "./pages/Admin/TourGuideUpdate";
 
 function App() {
   return (
@@ -39,8 +41,11 @@ function App() {
             <AdminPrivateRoute exact path="/admin/addcourse">
               <AddCourses />
             </AdminPrivateRoute>
-            <AdminPrivateRoute exact path="/admin/addteacher">
-              <AddTeacher />
+            <AdminPrivateRoute exact path="/admin/addtourguide">
+              <AddTourGuide />
+            </AdminPrivateRoute>
+            <AdminPrivateRoute exact path="/admin/tourguideEdit/:id">
+              <TourGuideUpdate />
             </AdminPrivateRoute>
             <AdminPrivateRoute exact path="/admin/tourguideslist">
               <AdminTourGuideList />
