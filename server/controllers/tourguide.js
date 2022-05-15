@@ -22,10 +22,9 @@ const getTourGuideById = async (req, res) => {
 
 const addTourGuide = async (req, res) => {
   try {
-    const { name, email, district, phone_number, address, status } = req.body;
+    const { name, district, phone_number, address, status } = req.body;
     await tourGuideModel.create({
       name,
-      email,
       district,
       phone_number,
       address,
@@ -49,11 +48,10 @@ const removeTourGuide = async (req, res) => {
 
 const updateTourGuide = async (req, res) => {
   const { id, newData } = req.body;
-  const { name, email, district, phone_number, address, status } = newData;
+  const { name, district, phone_number, address, status } = newData;
   try {
     const newTourGuide = {
       name,
-      email,
       district,
       phone_number,
       address,
