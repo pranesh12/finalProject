@@ -1,7 +1,8 @@
 .about {
   font-family: "Inconsolata";
-  background-color: var(--white);
+  background-color: var(--primaryGray);
   color: var(--primaryBlack);
+  padding-bottom: 30px;
 }
 .about_header {
   margin: 3rem 0;

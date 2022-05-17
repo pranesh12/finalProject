@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { getTourguidesData } from "../../Redux/actions/tourguide";
+import "./Tourguide.css";
 
 const Tourguides = () => {
   const TourguidesData = useSelector((state) => state.tourGuidesReducer.fetchDAta);
@@ -16,8 +17,7 @@ const Tourguides = () => {
   }, [dispatch]);
 
   const filterItems = (e) => {
-    const duplicatelist = TourguidesData;
-    const filterdlist = duplicatelist.filter((item) =>
+    const filterdlist = TourguidesData.filter((item) =>
       item.district.toLowerCase().includes(serarchKey.toLowerCase())
     );
     setItemList(filterdlist);
@@ -27,12 +27,11 @@ const Tourguides = () => {
       <Navbar />
       <div className="tourguide_section">
         <div id="content" className="p-4 p-md-5 pt-5 col-md-10">
-          <h1>Tour Guides</h1>
           <input
             value={serarchKey}
             className="form-control mb-5"
             type="name"
-            placeholder="Search"
+            placeholder="Search By District Name"
             onChange={(e) => setSearchKey(e.target.value)}
             onKeyUp={filterItems}
           />
@@ -56,7 +55,21 @@ const Tourguides = () => {
                         {person.address} , {person.district}
                       </td>
                       <td>{person.phone_number}</td>
-                      <td>{person.status}</td>
+                      {person?.status?.length == 8 ? (
+                        <td
+                          className="status"
+                          style={{ color: "var(--primaryViolet)" }}
+                        >
+                          {person.status}
+                        </td>
+                      ) : (
+                        <td
+                          className="status"
+                          style={{ color: "var(--primaryRed)" }}
+                        >
+                          {person.status}
+                        </td>
+                      )}
                     </tr>
                   </>
                 );

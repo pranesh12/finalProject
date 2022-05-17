@@ -1,0 +1,7 @@
+.tourguide_section {
+  font-family: "Inconsolata";
+}
+.status {
+  text-transform: capitalize;
+  font-weight: bold;
+}

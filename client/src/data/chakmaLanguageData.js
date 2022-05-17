@@ -60,6 +60,14 @@ const chakmaLanguageData = {
   //Footer
 
   footer: "All right's reserved",
+  navbar: {
+    chittagongHilTracts: "Chittagong Hil Tracts",
+    chakmaAlphabets: "Chakma Alphabets",
+    Translation: "Translation",
+    Article: "Article",
+    Tourguides: "Tour Guides",
+    Review: "Review",
+  },
 };
 
 export default chakmaLanguageData;

@@ -41,6 +41,7 @@ export const addReview = (reviewData) => async (dispatch, getState) => {
       reviewData
     );
     dispatch({ type: ADD_REVIEW_SUCCESS, payload: res.data });
+    window.location = "/";
   } catch (error) {
     dispatch({ type: ADD_REVIEW_FAILED, payload: error });
   }
@@ -58,6 +59,7 @@ export const updateReview = (reviewData) => async (dispatch, getState) => {
       reviewData
     );
     dispatch({ type: UPDATE_REVIEW_SUCCESS, payload: res.data });
+    window.location = "/";
   } catch (error) {
     dispatch({ type: UPDATE_REVIEW_FAILED, payload: error });
   }

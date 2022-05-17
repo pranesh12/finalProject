@@ -1,0 +1,19 @@
+import React from "react";
+import { Route } from "react-router";
+import { useSelector } from "react-redux";
+const ReviewPrivateRoute = ({ children, ...rest }) => {
+  const state = useSelector((state) => state.loginUserReducer.currentUser);
+
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        state.email && state.isAdmin === true
+          ? children
+          : (window.location = "/auth")
+      }
+    />
+  );
+};
+
+export default ReviewPrivateRoute;

@@ -4,7 +4,7 @@ import person from "../../images/person.png";
 const About = ({ props }) => {
   const { header, detail, list, btn } = props.about;
   return (
-    <div className="about">
+    <div className="about ">
       <div className=" container">
         <div className="row about_row">
           <div className="col-md-6">

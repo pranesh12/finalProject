@@ -7,6 +7,8 @@ import "./showreview.css";
 
 const AnoterCard = () => {
   const reviewState = useSelector((state) => state.getAllreviewReducer.fetchData);
+  const slicedReview = reviewState?.slice(0, 3);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,9 +17,9 @@ const AnoterCard = () => {
 
   return (
     <div>
-      <div className="container mt-5 mb-3">
-        <div className="row">
-          {reviewState?.map((review) => {
+      <div className="container mt-5 mb-5 ">
+        <div className="row ">
+          {slicedReview?.map((review) => {
             return (
               <>
                 <div className="col-md-4">

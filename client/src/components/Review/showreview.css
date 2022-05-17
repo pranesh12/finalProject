@@ -1,7 +1,6 @@
-body {
-  background-color: #eee;
+.showReview {
+  margin-top: 1000 !important;
 }
-
 .card {
   border: none;
   border-radius: 10px;
