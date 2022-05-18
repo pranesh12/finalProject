@@ -1,8 +1,12 @@
 const express = require("express");
 const compression = require("compression");
 const mongoose = require("mongoose");
+const morgan = require("morgan");
 const cors = require("cors");
 const app = express();
+require("dotenv").config();
+const PORT = process.env.PORT || 5000;
+
 const articleRouter = require("./routes/article");
 const userRouter = require("./routes/user");
 const reviewRouter = require("./routes/reviews");
@@ -17,7 +21,9 @@ app.use("/", articleRouter);
 app.use("/", userRouter);
 app.use("/", reviewRouter);
 app.use("/", tourguideRouter);
-mongoose.connect("mongodb://localhost:27017/hillTracts", {
+
+const uri = `mongodb+srv://Pranesh:${process.env.password}@cluster0.awm0l.mongodb.net/hilltracts?retryWrites=true&w=majority`;
+mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -25,7 +31,7 @@ mongoose.connect("mongodb://localhost:27017/hillTracts", {
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function () {
-  app.listen(5000, () => {
-    console.log("app is running on ports 5000");
+  app.listen(PORT, () => {
+    console.log(`server is runnit on ${PORT}`);
   });
 });
