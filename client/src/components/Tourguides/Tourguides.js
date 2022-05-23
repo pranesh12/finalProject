@@ -55,7 +55,7 @@ const Tourguides = () => {
                         {person.address} , {person.district}
                       </td>
                       <td>{person.phone_number}</td>
-                      {person?.status?.length == 8 ? (
+                      {person?.status?.length === 8 ? (
                         <td
                           className="status"
                           style={{ color: "var(--primaryViolet)" }}
